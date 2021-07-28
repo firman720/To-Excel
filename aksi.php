@@ -28,7 +28,7 @@
 		}
 	}
 
-	if(isset($_POST['input'])){
+	if(isset($_POST['masal'])){
 
 		$datanama  =  $_FILES['data']['name'];
 		$datatmp   =  $_FILES['data']['tmp_name'];	
@@ -44,12 +44,14 @@
 					    VALUES('','".$row[0]."','".$row[1]."','".$row[2]."') ")or die(mysql_error());
 
 				}
-
+				header('location: index.php');
 			}else{
-				echo "Gagal diupload";
+				echo "<script>alert('Gagal diupload')</script>";
+				header('location: index.php');
 			}
 		}else{
-			echo "Bukan File CSV";
+			echo "<script>alert('Bukan File CSV')</script>";
+			header('location: index.php');
 		}
 
 	}
